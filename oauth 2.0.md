@@ -5,5 +5,22 @@ Resource owner had to share her creds with any applications that need access to 
 Solution
 Instead, she authenticates directly with a server trusted by the photo-sharing service (called authorization server), which issues the printing service delegation specific credentials (called access token)
 
-Testing something
+    +--------+                               +---------------+
+     |        |--(A)- Authorization Request ->|   Resource    |
+     |        |                               |     Owner     |
+     |        |<-(B)-- Authorization Grant ---|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(C)-- Authorization Grant -->| Authorization |
+     | Client |                               |     Server    |
+     |        |<-(D)----- Access Token -------|               |
+     |        |                               +---------------+
+     |        |
+     |        |                               +---------------+
+     |        |--(E)----- Access Token ------>|    Resource   |
+     |        |                               |     Server    |
+     |        |<-(F)--- Protected Resource ---|               |
+     +--------+                               +---------------+
 
+                     Figure 1: Abstract Protocol Flow
